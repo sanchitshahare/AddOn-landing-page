@@ -3,7 +3,8 @@ import { MobileCarousel } from './MobileCarousel.jsx';
 import { HomeScreen, ReelsScreen, ProfileScreen } from './Phones.jsx';
 
 function PhoneFrame({ children, className = '' }) { return <div className={`phone-frame ${className}`}><div className="phone-speaker" />{children}</div>; }
-function StoreBadge({ android = false }) { return <a href="#download" className="store-badge"><span className="store-mark">{android ? '▶' : '●'}</span><span><small>{android ? 'GET IT ON' : 'Download on the'}</small><b>{android ? 'Google Play' : 'App Store'}</b></span></a>; }
+function StoreIcon({ android }) { return android ? <svg className="store-mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3 2.6v18.8L13.7 12z"/><path fill="#fbbc04" d="m13.7 12 3.4-3.4-10-5.8L3 2.6z"/><path fill="#ea4335" d="m13.7 12 3.4 3.4-10 5.8L3 21.4z"/><path fill="#4285f4" d="M17.1 8.6 21 10.8c1.3.8 1.3 1.6 0 2.4l-3.9 2.2L13.7 12z"/></svg> : <svg className="store-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.9c0-2.1 1.7-3.1 1.8-3.2-1-1.5-2.6-1.7-3.1-1.7-1.3-.1-2.6.8-3.2.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.9-3.5 2.2-1.5 2.6-.4 6.5 1 8.5.7 1 1.5 2.1 2.6 2.1 1 0 1.4-.7 2.7-.7 1.2 0 1.6.7 2.7.7 1.1 0 1.9-1 2.6-2 .8-1.2 1.2-2.4 1.2-2.5-.1 0-2.3-.9-2.3-3.4ZM14.6 6.6c.6-.8 1-1.8.9-2.9-.9 0-2.1.6-2.7 1.4-.5.6-1 1.7-.9 2.7 1 .1 2.1-.5 2.7-1.2Z"/></svg>; }
+function StoreBadge({ android = false }) { return <a href="#download" className="store-badge"><StoreIcon android={android} /><span><small>{android ? 'GET IT ON' : 'Download on the'}</small><b>{android ? 'Google Play' : 'App Store'}</b></span></a>; }
 
 export function Hero() {
   const slides = [<PhoneFrame key="profile"><ProfileScreen /></PhoneFrame>, <PhoneFrame key="home"><HomeScreen /></PhoneFrame>, <PhoneFrame key="reels"><ReelsScreen /></PhoneFrame>];

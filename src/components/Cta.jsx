@@ -1,9 +1,13 @@
 import { Reveal } from './Reveal.jsx';
 
+function StoreIcon({ google }) {
+  return google ? <svg className="store-mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="#34a853" d="M3 2.6v18.8L13.7 12z"/><path fill="#fbbc04" d="m13.7 12 3.4-3.4-10-5.8L3 2.6z"/><path fill="#ea4335" d="m13.7 12 3.4 3.4-10 5.8L3 21.4z"/><path fill="#4285f4" d="M17.1 8.6 21 10.8c1.3.8 1.3 1.6 0 2.4l-3.9 2.2L13.7 12z"/></svg> : <svg className="store-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.9c0-2.1 1.7-3.1 1.8-3.2-1-1.5-2.6-1.7-3.1-1.7-1.3-.1-2.6.8-3.2.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.9-3.5 2.2-1.5 2.6-.4 6.5 1 8.5.7 1 1.5 2.1 2.6 2.1 1 0 1.4-.7 2.7-.7 1.2 0 1.6.7 2.7.7 1.1 0 1.9-1 2.6-2 .8-1.2 1.2-2.4 1.2-2.5-.1 0-2.3-.9-2.3-3.4ZM14.6 6.6c.6-.8 1-1.8.9-2.9-.9 0-2.1.6-2.7 1.4-.5.6-1 1.7-.9 2.7 1 .1 2.1-.5 2.7-1.2Z"/></svg>;
+}
+
 function StoreBadge({ top }) {
   return (
     <a href="#home" className="store-badge bg-black/40 text-white border border-white/25 hover:border-white/50 backdrop-blur">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>
+      <StoreIcon google={!top} />
       <span><small>{top ? 'Download on the' : 'Get it on'}</small><b>{top ? 'App Store' : 'Google Play'}</b></span>
     </a>
   );
